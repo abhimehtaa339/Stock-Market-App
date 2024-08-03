@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.org.jetbrains.kotlin.kapt)
     alias(libs.plugins.hiltAndroid)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -81,4 +82,29 @@ dependencies {
 
     //open csv
     implementation ("com.opencsv:opencsv:5.5.2")
+
+    // Retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
+    implementation ("com.squareup.okhttp3:okhttp:5.0.0-alpha.3")
+    implementation ("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3")
+
+    // Compose dependencies
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1")
+    implementation ("androidx.compose.material:material-icons-extended:1.5.0")
+    implementation ("androidx.activity:activity-compose:1.6.0-alpha01")
+    implementation ("com.google.accompanist:accompanist-swiperefresh:0.24.2-alpha")
+
+    // Compose Nav Destinations
+    implementation ("io.github.raamcosta.compose-destinations:core:1.1.2-beta")
+    ksp ("io.github.raamcosta.compose-destinations:ksp:1.1.2-beta")
+
+    // Room
+    implementation ("androidx.room:room-runtime:2.4.2")
+    kapt ("androidx.room:room-compiler:2.4.2")
+
+    // Kotlin Extensions and Coroutines support for Room
+    implementation ("androidx.room:room-ktx:2.4.2")
+
+
 }
