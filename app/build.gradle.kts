@@ -23,6 +23,17 @@ android {
         }
     }
 
+    kotlin{
+        sourceSets {
+            debug {
+                kotlin.srcDir("build/generated/ksp/debug/kotlin")
+            }
+            release {
+                kotlin.srcDir("build/generated/ksp/release/kotlin")
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -48,6 +59,9 @@ android {
     }
     kapt{
         correctErrorTypes = true
+    }
+    ksp {
+        arg("compose-destinations.codeGenPackageName", "com.ip.stockmarketapp.presentation.company_listings") // replace package name!
     }
     packaging {
         resources {
@@ -97,8 +111,8 @@ dependencies {
     implementation ("com.google.accompanist:accompanist-swiperefresh:0.24.2-alpha")
 
     // Compose Nav Destinations
-    implementation ("io.github.raamcosta.compose-destinations:core:1.1.2-beta")
-    ksp ("io.github.raamcosta.compose-destinations:ksp:1.1.2-beta")
+    implementation ("io.github.raamcosta.compose-destinations:core:1.8.42-beta")
+    ksp ("io.github.raamcosta.compose-destinations:ksp:1.8.42-beta")
 
     // Room
     implementation ("androidx.room:room-runtime:2.4.2")
