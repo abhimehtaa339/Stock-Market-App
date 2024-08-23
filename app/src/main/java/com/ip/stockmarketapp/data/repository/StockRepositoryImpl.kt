@@ -42,7 +42,6 @@ class StockRepositoryImpl @Inject constructor(
                     it.toCompanyListing()
                 }
             ))
-
             val isDbEmpty = localListings.isEmpty() && query.isBlank()
             val shouldJustLoadFromCache = !isDbEmpty && !fetchFromRemote
 
