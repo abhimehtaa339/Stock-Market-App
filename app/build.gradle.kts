@@ -1,3 +1,5 @@
+import org.gradle.internal.impldep.com.google.api.services.storage.Storage.Projects.HmacKeys.Create
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -42,6 +44,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
@@ -61,7 +64,7 @@ android {
         correctErrorTypes = true
     }
     ksp {
-        arg("compose-destinations.codeGenPackageName", "com.ip.stockmarketapp.presentation.company_listings") // replace package name!
+        arg("compose-destinations.codeGenPackageName", "com.ip.stockmarketapp.presentation") // replace package name!
     }
     packaging {
         resources {
